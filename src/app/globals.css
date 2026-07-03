@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: #f7f1e8;
+  color: #17120d;
+  font-family: 'Manrope', sans-serif;
+}
+
+h1, h2, .luxury-font {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+::selection {
+  background: #17120d;
+  color: #f7f1e8;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(38px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+@keyframes loaderFade {
+  0%, 70% { opacity: 1; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+.animate-fade-up { animation: fadeUp 1s ease-out both; }
+.hero-zoom { animation: slowZoom 18s ease-in-out infinite alternate; }
+
+.glass {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.loader {
+  animation: loaderFade 2.2s ease forwards;
+}
+
+.grain::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.055;
+  background-image: radial-gradient(#000 0.7px, transparent 0.7px);
+  background-size: 4px 4px;
+  z-index: 999;
+}
