@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import type { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from "react";
 
 type ButtonProps = {
@@ -34,29 +31,19 @@ export function Button({
   };
 
   const classes =
-    `inline-flex items-center justify-center rounded-full font-semibold transition ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+    `inline-flex items-center justify-center rounded-full font-semibold transition hover:-translate-y-1 ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 
   if (href) {
     return (
-      <motion.a
-        href={href}
-        className={classes}
-        whileHover={{ scale: 1.03, y: -3 }}
-        whileTap={{ scale: 0.97 }}
-      >
+      <a href={href} className={classes}>
         {children}
-      </motion.a>
+      </a>
     );
   }
 
   return (
-    <motion.button
-      className={classes}
-      whileHover={{ scale: 1.03, y: -3 }}
-      whileTap={{ scale: 0.97 }}
-      {...props}
-    >
+    <button className={classes} {...props}>
       {children}
-    </motion.button>
+    </button>
   );
 }
